@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation(450, 100);
-        setSize(1100, 600);
+        setSize(1220, 600);
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
         setResizable(false);
 

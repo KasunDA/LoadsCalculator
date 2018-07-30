@@ -5,7 +5,7 @@ import java.awt.*;
 public class LabelPanel extends JPanel {
 
     public static final int HEIGHT = 50;
-    public static final int WIDTH = 850;
+    public static final int WIDTH = 890;
     private JLabel General = new JLabel();
 
     public LabelPanel() {
