@@ -8,13 +8,33 @@ public class LBPanel extends JPanel {
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    protected double weightOfLB;
-    protected int noOfPeople;
-    protected String weightInLB;
-    protected String totalWeight;
-    protected String davitWeight;
+    protected String LBweight;
+    double weightOfLB;
+    protected String PeopleNo;
+    double noOfPeople;
+    protected double weightInLB;
+    protected double totalWeight;
+    protected double davitWeight;
 
 
+    public double weightInLbCalc(){
+        if (LBweight!=null && PeopleNo!=null) {
+            weightOfLB = Double.parseDouble(LBweight);
+            noOfPeople = Double.parseDouble(PeopleNo);
+            weightInLB = (weightOfLB * 1.1) + (noOfPeople * 75 * 1.1);
+        }
+        return weightInLB;
+    }
+
+    public double totalWeightCalc(){
+            totalWeight = weightOfLB + weightInLB;
+        return totalWeight;
+    }
+
+    public double davitWeightCalc(){
+            davitWeight = totalWeight;
+        return davitWeight;
+    }
 
     public LBPanel() {
 
@@ -30,22 +50,24 @@ public class LBPanel extends JPanel {
         add(new JLabel("Weight of the empty boat with equipment"));
         JTextField weightField = new JTextField();
         weightField.setPreferredSize(fieleds);
-        add(weightField(weightOfLB));
-
+        add(weightField);
+        LBweight = weightField.getText();
 
         add(new JLabel("No. of persons"));
         JTextField personsField = new JTextField();
         personsField.setPreferredSize(fieleds);
         add(personsField);
+        PeopleNo = personsField.getText();
 
         add(new Label("______________________________"));
 
         add(new JLabel("Calculated weight to be loaded to LB: "));
-        add(new JLabel(weightInLB));
+        add(new JLabel(String.valueOf(weightInLB)));
         add(new JLabel("Calculated total load: "));
-        add(new JLabel(totalWeight));
+        add(new JLabel(String.valueOf(totalWeight)));
         add(new JLabel("Calculated weight to be used for Davit test: "));
-        add(new JLabel(davitWeight));
+        add(new JLabel(String.valueOf(davitWeight)));
 
     }
+
 }
