@@ -8,12 +8,12 @@ public class LRPanel extends JPanel {
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    double davitWeight;
-    String SWLStr;
-    Double SWL;
+    private double davitWeight;
+    static String SWLStr;
+    private Double SWL;
 
     public double davitWeightCalc(){
-        SWL = Double.valueOf(SWLStr);
+        SWL = Double.parseDouble(SWLStr.replaceAll("[^0-9.]", ""));
         davitWeight = SWL*1.1;
         return davitWeight;
     }

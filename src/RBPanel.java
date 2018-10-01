@@ -3,30 +3,30 @@ import java.awt.*;
 
 public class RBPanel extends JPanel {
 
-    public static final int HEIGHT = 350;
-    public static final int WIDTH = 370;
+    private static final int HEIGHT = 350;
+    private static final int WIDTH = 370;
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    String RBweight;
-    Double weightOfRB;
-    String PeopleNo;
-    Double noOfPeople;
-    protected double weightInRB;
-    protected double totalWeight;
-    protected double davitWeight;
+    static String RBweight;
+    private Double weightOfRB;
+    static String PeopleNo;
+    private Double noOfPeople;
+    private double weightInRB;
+    private double totalWeight;
+    private double davitWeight;
 
     public double weightInRbCalc(){
         if (RBweight!=null && PeopleNo!=null) {
-            weightOfRB = Double.valueOf(RBweight);
-            noOfPeople = Double.valueOf(PeopleNo);
+            weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
+            noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
             weightInRB = (weightOfRB * 1.1) + (noOfPeople * 75 * 1.1);
         }
         return weightInRB;
     }
 
     public double totalWeightCalc(){
-        weightOfRB = Double.valueOf(RBweight);
+        weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
         totalWeight = weightOfRB + weightInRB;
         return totalWeight;
     }
@@ -51,11 +51,13 @@ public class RBPanel extends JPanel {
         JTextField weightField = new JTextField();
         weightField.setPreferredSize(fieleds);
         add(weightField);
+        RBweight = weightField.getText();
 
         add(new JLabel("No. of persons"));
         JTextField personsField = new JTextField();
         personsField.setPreferredSize(fieleds);
         add(personsField);
+        PeopleNo = personsField.getText();
 
         add(new JLabel("________________________________"));
 

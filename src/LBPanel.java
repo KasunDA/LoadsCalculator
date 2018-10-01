@@ -1,34 +1,36 @@
+import javafx.scene.control.TextFormatter;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class LBPanel extends JPanel {
 
-    public static final int HEIGHT = 350;
-    public static final int WIDTH = 370;
+    private static final int HEIGHT = 350;
+    private static final int WIDTH = 370;
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
 
     String LBweight;
-    Double weightOfLB;
     String PeopleNo;
-    Double noOfPeople;
-    double weightInLB;
-    double totalWeight;
-    double davitWeight;
+    private Double weightOfLB;
+    private Double noOfPeople;
+    private double weightInLB;
+    private double totalWeight;
+    private double davitWeight;
 
 
     public double weightInLbCalc(){
-        if (LBweight!=null && PeopleNo!=null) {
-            weightOfLB = Double.valueOf(LBweight);
-            noOfPeople = Double.valueOf(PeopleNo);
+         if (LBweight!=null && PeopleNo!=null) {
+            weightOfLB = Double.parseDouble(LBweight.replaceAll("[^0-9.]", ""));
+            noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
             weightInLB = (weightOfLB * 1.1) + (noOfPeople * 75 * 1.1);
         }
         return weightInLB;
     }
 
     public double totalWeightCalc(){
-        weightOfLB = Double.valueOf(LBweight);
+        weightOfLB = Double.parseDouble(LBweight.replaceAll("[^0-9.]", ""));;
         totalWeight = weightOfLB + weightInLB;
         return totalWeight;
     }
@@ -39,7 +41,7 @@ public class LBPanel extends JPanel {
     }
 
 
-    public LBPanel() {
+        public LBPanel() {
 
         add(new JLabel("Weights to be loaded to the LB and used for Davits test (kg)"));
         add(new JLabel("________________________________"));
