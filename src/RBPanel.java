@@ -8,11 +8,33 @@ public class RBPanel extends JPanel {
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    protected double weightOfRB;
-    protected int noOfPeople;
-    protected String weightInRB;
-    protected String totalWeight;
-    protected String davitWeight;
+    String RBweight;
+    Double weightOfRB;
+    String PeopleNo;
+    Double noOfPeople;
+    protected double weightInRB;
+    protected double totalWeight;
+    protected double davitWeight;
+
+    public double weightInRbCalc(){
+        if (RBweight!=null && PeopleNo!=null) {
+            weightOfRB = Double.valueOf(RBweight);
+            noOfPeople = Double.valueOf(PeopleNo);
+            weightInRB = (weightOfRB * 1.1) + (noOfPeople * 75 * 1.1);
+        }
+        return weightInRB;
+    }
+
+    public double totalWeightCalc(){
+        weightOfRB = Double.valueOf(RBweight);
+        totalWeight = weightOfRB + weightInRB;
+        return totalWeight;
+    }
+
+    public double davitWeightCalc(){
+        davitWeight = totalWeight;
+        return davitWeight;
+    }
 
     public RBPanel() {
 
@@ -38,10 +60,10 @@ public class RBPanel extends JPanel {
         add(new JLabel("________________________________"));
 
         add(new JLabel("Calculated weight to be loaded to RB: "));
-        add(new JLabel(weightInRB));
+        add(new JLabel(String.valueOf(weightInRB)));
         add(new JLabel("Calculated total load: "));
-        add(new JLabel(totalWeight));
+        add(new JLabel(String.valueOf(totalWeight)));
         add(new JLabel("Calculated weight to be used for Davit test: "));
-        add(new JLabel(davitWeight));
+        add(new JLabel(String.valueOf(davitWeight)));
     }
 }

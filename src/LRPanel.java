@@ -7,8 +7,16 @@ public class LRPanel extends JPanel {
     public static final int WIDTH = 370;
     private int fieldHight = 25;
     private int fieldWidth = 50;
-    protected String davitWeight;
-    protected double SWL;
+
+    double davitWeight;
+    String SWLStr;
+    Double SWL;
+
+    public double davitWeightCalc(){
+        SWL = Double.valueOf(SWLStr);
+        davitWeight = SWL*1.1;
+        return davitWeight;
+    }
 
     public LRPanel() {
 
@@ -21,14 +29,16 @@ public class LRPanel extends JPanel {
 
         Dimension fieleds = new Dimension(fieldWidth, fieldHight);
 
-        add(new JLabel("SWL of the Davit"));
+        add(new JLabel("SWL of the Davit: "));
         JTextField weightField = new JTextField();
         weightField.setPreferredSize(fieleds);
         add(weightField);
+        SWLStr = weightField.getText();
 
         add(new JLabel("_______________________________________"));
 
         add(new JLabel("Calculated weight to be used for Davit test: "));
-        add(new Label(davitWeight));
+        add(new Label(String.valueOf(davitWeight)));
+
     }
 }

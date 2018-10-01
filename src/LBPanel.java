@@ -8,33 +8,36 @@ public class LBPanel extends JPanel {
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    protected String LBweight;
-    double weightOfLB;
-    protected String PeopleNo;
-    double noOfPeople;
-    protected double weightInLB;
-    protected double totalWeight;
-    protected double davitWeight;
+
+    String LBweight;
+    Double weightOfLB;
+    String PeopleNo;
+    Double noOfPeople;
+    double weightInLB;
+    double totalWeight;
+    double davitWeight;
 
 
     public double weightInLbCalc(){
         if (LBweight!=null && PeopleNo!=null) {
-            weightOfLB = Double.parseDouble(LBweight);
-            noOfPeople = Double.parseDouble(PeopleNo);
+            weightOfLB = Double.valueOf(LBweight);
+            noOfPeople = Double.valueOf(PeopleNo);
             weightInLB = (weightOfLB * 1.1) + (noOfPeople * 75 * 1.1);
         }
         return weightInLB;
     }
 
     public double totalWeightCalc(){
-            totalWeight = weightOfLB + weightInLB;
+        weightOfLB = Double.valueOf(LBweight);
+        totalWeight = weightOfLB + weightInLB;
         return totalWeight;
     }
 
     public double davitWeightCalc(){
-            davitWeight = totalWeight;
+        davitWeight = totalWeight;
         return davitWeight;
     }
+
 
     public LBPanel() {
 

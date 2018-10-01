@@ -19,14 +19,22 @@ public class Calculate extends JButton implements ActionListener {
         add(new JLabel("Calculate"));
     }
 
-    LBPanel calc = new LBPanel();
-
         @Override
         public void actionPerformed(ActionEvent e) {
+            LBPanel calc = new LBPanel();
+            RBPanel calcRB = new RBPanel();
+            LRPanel calcLR = new LRPanel();
             if(pushed)
                 calc.weightInLbCalc();
                 calc.totalWeightCalc();
                 calc.davitWeightCalc();
+
+                calcRB.weightInRbCalc();
+                calcRB.totalWeightCalc();
+                calcRB.davitWeightCalc();
+
+                calcLR.davitWeightCalc();
             pushed =!pushed;
         }
+
 }
