@@ -23,18 +23,15 @@ public class MainFrame extends JFrame {
         add(LabelPanel);
 
         LBPanel = new LBPanel();
-       // LBPanel.setLocation(10, 50);
-        add(LBPanel);
+             add(LBPanel);
 
         RBPanel = new RBPanel();
-       // RBPanel.setLocation(220, 50);
-        add(RBPanel);
+             add(RBPanel);
 
         LRPanel = new LRPanel();
-       // LRPanel.setLocation(450, 50);
-        add(LRPanel);
+              add(LRPanel);
 
-        Calculate = new Calculate();
+        Calculate = new Calculate(LBPanel);
         add(Calculate);
 
         Reset = new Reset();
