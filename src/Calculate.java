@@ -7,9 +7,12 @@ public class Calculate extends JButton implements ActionListener {
 
     public static final int HEIGHT = 30;
     public static final int WIDTH = 100;
-    private boolean pushed = false;
 
-    public Calculate() {
+    LBPanel lbPanel;
+
+    public Calculate(JPanel lbPanel) {
+
+        this.lbPanel = (LBPanel) lbPanel;
 
         setLayout(new FlowLayout(FlowLayout.CENTER));
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -21,20 +24,7 @@ public class Calculate extends JButton implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            LBPanel calc = new LBPanel();
-            RBPanel calcRB = new RBPanel();
-            LRPanel calcLR = new LRPanel();
-            if(pushed)
-                calc.weightInLbCalc();
-                calc.totalWeightCalc();
-                calc.davitWeightCalc();
-
-                calcRB.weightInRbCalc();
-                calcRB.totalWeightCalc();
-                calcRB.davitWeightCalc();
-
-                calcLR.davitWeightCalc();
-            pushed =!pushed;
+                lbPanel.recalculatePanel();
         }
 
 }

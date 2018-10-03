@@ -8,7 +8,6 @@ public class Reset extends JButton implements ActionListener {
 
     public static final int HEIGHT = 30;
     public static final int WIDTH = 100;
-    private boolean pushed = false;
 
     public Reset(){
 
@@ -22,19 +21,7 @@ public class Reset extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        LBPanel calc = new LBPanel();
-        RBPanel calcRB = new RBPanel();
-        LRPanel calcLR = new LRPanel();
-        if(pushed)
-          calc.LBweight = "" ;
-          calc.PeopleNo = "";
 
-          calcRB.RBweight = "";
-          calcRB.PeopleNo = "";
-
-          calcLR.SWLStr = "";
-
-        pushed =!pushed;
     }
 
 }

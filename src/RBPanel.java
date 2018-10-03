@@ -3,37 +3,46 @@ import java.awt.*;
 
 public class RBPanel extends JPanel {
 
+    JTextField weightField;
+    JTextField personsField;
+    JLabel label1;
+    JLabel label2;
+    JLabel label3;
+    JLabel label4;
+    JLabel label5;
+    JLabel label6;
+    JLabel label7;
+
     private static final int HEIGHT = 350;
     private static final int WIDTH = 370;
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    static String RBweight;
-    private Double weightOfRB;
-    static String PeopleNo;
-    private Double noOfPeople;
-    private double weightInRB;
-    private double totalWeight;
-    private double davitWeight;
+    Logics calcs = new Logics();
 
-    public double weightInRbCalc(){
-        if (RBweight!=null && PeopleNo!=null) {
-            weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
-            noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
-            weightInRB = (weightOfRB * 1.1) + (noOfPeople * 75 * 1.1);
-        }
-        return weightInRB;
+    public void recalculatePanel() {
+        calcs.RBweight = weightField.getText();
+        calcs.PeopleNo = personsField.getText();
+        calcs.weightInRbCalc();
+        calcs.totalWeightCalc();
+        calcs.davitWeightCalc();
+        reInitializeLabels();
     }
 
-    public double totalWeightCalc(){
-        weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
-        totalWeight = weightOfRB + weightInRB;
-        return totalWeight;
+    private void initializeLabels() {
+        label1 = new JLabel("________________________________");
+        label2 = new JLabel("Calculated weight to be loaded to RB: ");
+        label3 = new JLabel(String.valueOf(calcs.weightInRB));
+        label4 = new JLabel("Calculated total load: ");
+        label5 = new JLabel(String.valueOf(calcs.totalWeight));
+        label6 = new JLabel("Calculated weight to be used for Davit test: ");
+        label7 = new JLabel(String.valueOf(calcs.davitWeight));
     }
 
-    public double davitWeightCalc(){
-        davitWeight = totalWeight;
-        return davitWeight;
+    private void reInitializeLabels() {
+        label3.setText(String.valueOf(calcs.weightInRB));
+        label5.setText(String.valueOf(calcs.totalWeight));
+        label7.setText(String.valueOf(calcs.davitWeight));
     }
 
     public RBPanel() {
@@ -51,21 +60,22 @@ public class RBPanel extends JPanel {
         JTextField weightField = new JTextField();
         weightField.setPreferredSize(fieleds);
         add(weightField);
-        RBweight = weightField.getText();
 
         add(new JLabel("No. of persons"));
         JTextField personsField = new JTextField();
         personsField.setPreferredSize(fieleds);
         add(personsField);
-        PeopleNo = personsField.getText();
 
         add(new JLabel("________________________________"));
 
-        add(new JLabel("Calculated weight to be loaded to RB: "));
-        add(new JLabel(String.valueOf(weightInRB)));
-        add(new JLabel("Calculated total load: "));
-        add(new JLabel(String.valueOf(totalWeight)));
-        add(new JLabel("Calculated weight to be used for Davit test: "));
-        add(new JLabel(String.valueOf(davitWeight)));
+        initializeLabels();
+
+        add(label1);
+        add(label2);
+        add(label3);
+        add(label4);
+        add(label5);
+        add(label6);
+        add(label7);
     }
 }
