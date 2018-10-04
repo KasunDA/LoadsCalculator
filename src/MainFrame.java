@@ -31,10 +31,10 @@ public class MainFrame extends JFrame {
         LRPanel = new LRPanel();
         add(LRPanel);
 
-        Calculate = new Calculate(LBPanel);
+        Calculate = new Calculate(LBPanel, RBPanel, LRPanel);
         add(Calculate);
 
-        Reset = new Reset();
+        Reset = new Reset(LBPanel, RBPanel, LRPanel);
         add(Reset);
 
     }

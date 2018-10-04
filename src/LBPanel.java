@@ -18,7 +18,7 @@ public class LBPanel extends JPanel {
     private int fieldHight = 25;
     private int fieldWidth = 50;
 
-    Logics calcs = new Logics();
+    LogicsLB calcs = new LogicsLB();
 
     public void recalculatePanel() {
         calcs.LBweight = weightField.getText();
@@ -43,6 +43,11 @@ public class LBPanel extends JPanel {
         label3.setText(String.valueOf(calcs.weightInLB));
         label5.setText(String.valueOf(calcs.totalWeight));
         label7.setText(String.valueOf(calcs.davitWeight));
+    }
+
+    void resetFields() {
+        weightField.setText("");
+        personsField.setText("");
     }
 
     public LBPanel() {
