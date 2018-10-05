@@ -7,7 +7,7 @@ class LogicsRB {
     double totalWeight = 0.0;
     double davitWeight = 0.0;
 
-    double weightInRbCalc() {
+    void weightInRbCalc() {
         double noOfPeople;
         if (RBweight!=null && PeopleNo!=null) {
             weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
@@ -16,17 +16,14 @@ class LogicsRB {
         }
         else
             System.out.println("Wrong data at RB");
-        return weightInRB;
     }
 
-    double totalWeightCalc(){
+    void totalWeightCalc(){
         weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
         totalWeight = weightOfRB + weightInRB;
-        return totalWeight;
     }
 
-    double davitWeightCalc(){
+    void davitWeightCalc(){
         davitWeight = totalWeight;
-        return davitWeight;
     }
 }

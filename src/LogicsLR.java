@@ -3,7 +3,7 @@ class LogicsLR {
     String SWLStr;
     double davitWeight = 0.0;
 
-    double davitWeightCalc(){
+    void davitWeightCalc(){
         double SWL;
         if (SWLStr!=null) {
             SWL = Double.parseDouble(SWLStr.replaceAll("[^0-9.]", ""));
@@ -11,6 +11,5 @@ class LogicsLR {
         }
         else
             System.out.println("Wrong data at SWL field");
-        return davitWeight;
     }
 }
