@@ -1,17 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame extends JFrame {
+class MainFrame extends JFrame {
 
-    private JButton Calculate;
-    private JButton Reset;
-    private JPanel LBPanel;
-    private JPanel RBPanel;
-    private JPanel LRPanel;
-    private JPanel LabelPanel;
+    MainFrame() {
 
-    public MainFrame() {
-        super("Loads Calculator");
+        JButton Calculate;
+        JButton Reset;
+        JPanel LBPanel;
+        JPanel RBPanel;
+        JPanel LRPanel;
+        JPanel LabelPanel;
+
+        setTitle("Loads calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation(450, 100);

@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 
 public class Reset extends JButton implements ActionListener {
 
-    public static final int HEIGHT = 30;
-    public static final int WIDTH = 100;
+    private static final int HEIGHT = 30;
+    private static final int WIDTH = 100;
 
-    LBPanel lbPanel;
-    RBPanel rbPanel;
-    LRPanel lrPanel;
+    private LBPanel lbPanel;
+    private RBPanel rbPanel;
+    private LRPanel lrPanel;
 
-    public Reset(JPanel lbPanel, JPanel rbPanel, JPanel lrPanel){
+    Reset(JPanel lbPanel, JPanel rbPanel, JPanel lrPanel){
 
         this.lbPanel = (LBPanel) lbPanel;
         this.rbPanel = (RBPanel) rbPanel;

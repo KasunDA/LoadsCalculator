@@ -1,26 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class RBPanel extends JPanel {
+class RBPanel extends JPanel {
 
-    JTextField weightField;
-    JTextField personsField;
-    JLabel label1;
-    JLabel label2;
-    JLabel label3;
-    JLabel label4;
-    JLabel label5;
-    JLabel label6;
-    JLabel label7;
+    private JTextField weightField;
+    private JTextField personsField;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
+    private JLabel label5;
+    private JLabel label6;
+    private JLabel label7;
 
     private static final int HEIGHT = 350;
     private static final int WIDTH = 370;
-    private int fieldHight = 25;
-    private int fieldWidth = 50;
 
-    LogicsRB calcs = new LogicsRB();
+    private LogicsRB calcs = new LogicsRB();
 
-    public void recalculatePanel() {
+    void recalculatePanel() {
         calcs.RBweight = weightField.getText();
         calcs.PeopleNo = personsField.getText();
         calcs.weightInRbCalc();
@@ -50,7 +48,10 @@ public class RBPanel extends JPanel {
         personsField.setText("");
     }
 
-    public RBPanel() {
+    RBPanel() {
+
+        int fieldHight = 25;
+        int fieldWidth = 50;
 
         add(new JLabel("Weights to be loaded to the RB and used for Davit's test. (kg)"));
         add(new JLabel("________________________________"));
@@ -62,12 +63,12 @@ public class RBPanel extends JPanel {
         Dimension fieleds = new Dimension(fieldWidth, fieldHight);
 
         add(new JLabel("Weight of the empty boat with equipment"));
-        JTextField weightField = new JTextField();
+        weightField = new JTextField();
         weightField.setPreferredSize(fieleds);
         add(weightField);
 
         add(new JLabel("No. of persons"));
-        JTextField personsField = new JTextField();
+        personsField = new JTextField();
         personsField.setPreferredSize(fieleds);
         add(personsField);
 

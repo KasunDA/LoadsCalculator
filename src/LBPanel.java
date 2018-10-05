@@ -1,26 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class LBPanel extends JPanel {
+class LBPanel extends JPanel {
 
-    JTextField weightField;
-    JTextField personsField;
-    JLabel label1;
-    JLabel label2;
-    JLabel label3;
-    JLabel label4;
-    JLabel label5;
-    JLabel label6;
-    JLabel label7;
+    private JTextField weightField;
+    private JTextField personsField;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
+    private JLabel label5;
+    private JLabel label6;
+    private JLabel label7;
 
     private static final int HEIGHT = 350;
     private static final int WIDTH = 370;
-    private int fieldHight = 25;
-    private int fieldWidth = 50;
 
-    LogicsLB calcs = new LogicsLB();
+    private LogicsLB calcs = new LogicsLB();
 
-    public void recalculatePanel() {
+    void recalculatePanel() {
         calcs.LBweight = weightField.getText();
         calcs.PeopleNo = personsField.getText();
         calcs.weightInLbCalc();
@@ -50,9 +48,12 @@ public class LBPanel extends JPanel {
         personsField.setText("");
     }
 
-    public LBPanel() {
+    LBPanel() {
 
-        add(new JLabel("Weights to be loaded to the LB and used for Davits test (kg)"));
+        int fieldHight = 25;
+        int fieldWidth = 50;
+
+        add(new JLabel("Weights to be loaded to the LB and used for Davit's test (kg)"));
         add(new JLabel("________________________________"));
 
         setLayout(new FlowLayout(FlowLayout.CENTER));
