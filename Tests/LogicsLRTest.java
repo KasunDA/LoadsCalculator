@@ -1,27 +1,20 @@
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 
 public class LogicsLRTest {
 
-    String SWLStr;
-    double davitWeight;
+    private String SWLStr;
 
     @BeforeMethod
-
-    private void setUp() {
-       SWLStr = "2100";
+    private void before(){
+        SWLStr = "2100";
     }
 
     @Test ()
     private void testDavitWeightCalc() {
-        setUp();
+        before();
 
-        assertEquals(String.valueOf(davitWeight), "2310");
+        double davitWeight = LogicsLR.davitWeightCalc();
+
     }
-
-
-
 }
