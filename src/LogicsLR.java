@@ -1,6 +1,6 @@
 class LogicsLR {
 
-    static String SWLStr;
+    static String SWLStr = "";
     static double davitWeight = 0.0;
 
     static double davitWeightCalc(){

@@ -14,6 +14,7 @@ class LRPanel extends JPanel {
     private LogicsLR calcs = new LogicsLR();
 
     void recalculatePanel() {
+        calcs.SWLStr = SWLStr.getText();
         calcs.davitWeightCalc();
         reInitializeLabels();
     }
