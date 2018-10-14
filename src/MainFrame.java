@@ -15,7 +15,7 @@ class MainFrame extends JFrame {
         setTitle("Loads calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        setLocation(450, 100);
+        setLocation(50, 100);
         setSize(1220, 600);
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
         setResizable(false);

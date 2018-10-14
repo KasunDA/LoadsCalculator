@@ -14,7 +14,7 @@ public class LogicsLRTest {
     private void testDavitWeightCalc() {
         before();
 
-        double davitWeight = LogicsLR.davitWeightCalc();
+        double davitWeight = LogicsLR.davitWeightCalc(SWLStr);
 
     }
 }

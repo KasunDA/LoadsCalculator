@@ -9,18 +9,26 @@ class LogicsRB {
 
     void weightInRbCalc() {
         double noOfPeople;
-        if (RBweight!=null && PeopleNo!=null) {
+        if (!RBweight.equals("") && !PeopleNo.equals("")) {
             weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
             noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
             weightInRB = (weightOfRB * 0.1) + (noOfPeople * 75 * 1.1);
+            weightInRB *= 10;
+            weightInRB = Math.round(weightInRB);
+            weightInRB /= 10;
         }
-        else
-            System.out.println("Wrong data at RB");
+        else {
+            weightInRB = 0;
+        }
     }
 
-    void totalWeightCalc(){
-        weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
-        totalWeight = weightOfRB + weightInRB;
+    void totalWeightCalc() {
+        if (!RBweight.equals("") && !PeopleNo.equals("")) {
+            weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
+            totalWeight = weightOfRB + weightInRB;
+        } else {
+            totalWeight = 0;
+        }
     }
 
     void davitWeightCalc(){

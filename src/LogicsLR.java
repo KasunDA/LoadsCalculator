@@ -1,16 +1,20 @@
 class LogicsLR {
 
-    static String SWLStr = "";
+
     static double davitWeight = 0.0;
 
-    static double davitWeightCalc(){
+    static double davitWeightCalc(String SWLStr){
         double SWL;
-        if (SWLStr!=null) {
+        if (!SWLStr.equals("")) {
             SWL = Double.parseDouble(SWLStr.replaceAll("[^0-9.]", ""));
             davitWeight = SWL * 1.1;
+            davitWeight *= 10;
+            davitWeight = Math.round(davitWeight);
+            davitWeight /= 10;
         }
-        else
-            System.out.println("Wrong data at SWL field");
+        else {
+            davitWeight = 0;
+        }
         return davitWeight;
     }
 }
