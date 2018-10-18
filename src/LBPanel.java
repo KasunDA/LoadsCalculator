@@ -15,6 +15,8 @@ class LBPanel extends JPanel implements ActionListener {
     private JLabel label5;
     private JLabel label6;
     private JLabel label7;
+    JRadioButton firstButton;
+    JRadioButton secondButton;
     private ButtonGroup group;
 
     private static final int HEIGHT = 350;
@@ -77,13 +79,12 @@ class LBPanel extends JPanel implements ActionListener {
         personsField.setPreferredSize(fieleds);
         add(personsField);
 
-
-        JRadioButton firstButton = new JRadioButton("75 kg");
+        firstButton = new JRadioButton("75 kg");
         firstButton.setMnemonic(KeyEvent.VK_B);
         firstButton.setActionCommand("75 kg");
         firstButton.setSelected(true);
 
-        JRadioButton secondButton = new JRadioButton("82,5 kg");
+        secondButton = new JRadioButton("82,5 kg");
         secondButton.setActionCommand("82,5 kg");
         secondButton.setMnemonic(KeyEvent.VK_C);
 
@@ -118,6 +119,21 @@ class LBPanel extends JPanel implements ActionListener {
 
     }
 
+    private static double personWeight;
+
+    void setPersonWeight(double personWeight) {
+        this.personWeight = personWeight;
+    }
     public void actionPerformed(ActionEvent e) {
+        if (firstButton.isSelected()){
+            setPersonWeight(75.0);
+        }
+        else {
+            setPersonWeight(82.5);
+        }
+    }
+
+    public static double getPersonWeight() {
+        return personWeight;
     }
 }

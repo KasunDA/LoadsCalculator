@@ -7,16 +7,14 @@ class LogicsLB {
     double totalWeight = 0.0;
     double davitWeight = 0.0;
 
-
+    //LBPanel panel = new LBPanel();
 
     void weightInLbCalc() {
         double noOfPeople;
         if (!LBweight.equals("") && !PeopleNo.equals("")) {
             weightOfLB = Double.parseDouble(LBweight.replaceAll("[^0-9.]", ""));
             noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
-
-
-            weightInLB = (weightOfLB * 0.1) + (noOfPeople * 75 * 1.1);
+            weightInLB = (weightOfLB * 0.1) + (noOfPeople * LBPanel.getPersonWeight() * 1.1);
             weightInLB *=10;
             weightInLB = Math.round(weightInLB);
             weightInLB /= 10;
