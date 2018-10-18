@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
-class RBPanel extends JPanel {
+class RBPanel extends JPanel implements ActionListener {
 
     private JTextField weightField;
     private JTextField personsField;
@@ -12,6 +15,7 @@ class RBPanel extends JPanel {
     private JLabel label5;
     private JLabel label6;
     private JLabel label7;
+    private ButtonGroup group;
 
     private static final int HEIGHT = 350;
     private static final int WIDTH = 370;
@@ -72,6 +76,31 @@ class RBPanel extends JPanel {
         personsField.setPreferredSize(fieleds);
         add(personsField);
 
+        JRadioButton firstButton = new JRadioButton("75 kg");
+        firstButton.setMnemonic(KeyEvent.VK_B);
+        firstButton.setActionCommand("75 kg");
+        firstButton.setSelected(true);
+
+        JRadioButton secondButton = new JRadioButton("82,5 kg");
+        secondButton.setActionCommand("82,5 kg");
+        secondButton.setMnemonic(KeyEvent.VK_C);
+
+        add(new JLabel("                                         "));
+        add(new JLabel("Weight of a person"));
+
+        group = new ButtonGroup();
+        group.add(firstButton);
+        group.add(secondButton);
+
+        firstButton.addActionListener(this);
+        secondButton.addActionListener(this);
+
+        JPanel radioPanel = new JPanel(new GridLayout(1, 2));
+        add(radioPanel);
+        radioPanel.add(firstButton);
+        radioPanel.add(secondButton);
+
+
         add(new JLabel("________________________________"));
 
         initializeLabels();
@@ -83,5 +112,7 @@ class RBPanel extends JPanel {
         add(label5);
         add(label6);
         add(label7);
+    }
+    public void actionPerformed(ActionEvent e) {
     }
 }

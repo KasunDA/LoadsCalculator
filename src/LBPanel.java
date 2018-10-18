@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
-class LBPanel extends JPanel {
+class LBPanel extends JPanel implements ActionListener {
 
     private JTextField weightField;
     private JTextField personsField;
@@ -12,6 +15,7 @@ class LBPanel extends JPanel {
     private JLabel label5;
     private JLabel label6;
     private JLabel label7;
+    private ButtonGroup group;
 
     private static final int HEIGHT = 350;
     private static final int WIDTH = 370;
@@ -28,6 +32,7 @@ class LBPanel extends JPanel {
     }
     
     private void initializeLabels() {
+
         label1 = new JLabel("________________________________");
         label2 = new JLabel("Calculated weight to be loaded to LB: ");
         label3 = new JLabel(String.valueOf(calcs.weightInLB));
@@ -54,7 +59,7 @@ class LBPanel extends JPanel {
         int fieldWidth = 50;
 
         add(new JLabel("Weights to be loaded to the LB and used for Davit's test (kg)"));
-        add(new JLabel("________________________________"));
+        add(new JLabel("_______________________________________"));
 
         setLayout(new FlowLayout(FlowLayout.CENTER));
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -72,7 +77,34 @@ class LBPanel extends JPanel {
         personsField.setPreferredSize(fieleds);
         add(personsField);
 
-        add(new JLabel("________________________________"));
+
+        JRadioButton firstButton = new JRadioButton("75 kg");
+        firstButton.setMnemonic(KeyEvent.VK_B);
+        firstButton.setActionCommand("75 kg");
+        firstButton.setSelected(true);
+
+        JRadioButton secondButton = new JRadioButton("82,5 kg");
+        secondButton.setActionCommand("82,5 kg");
+        secondButton.setMnemonic(KeyEvent.VK_C);
+
+        add(new JLabel("                                         "));
+        add(new JLabel("Weight of a person"));
+
+        group = new ButtonGroup();
+        group.add(firstButton);
+        group.add(secondButton);
+
+        firstButton.addActionListener(this);
+        secondButton.addActionListener(this);
+
+        JPanel radioPanel = new JPanel(new GridLayout(1, 2));
+        add(radioPanel);
+        radioPanel.add(firstButton);
+        radioPanel.add(secondButton);
+
+
+        add(new JLabel("_____________________________________"));
+
 
         initializeLabels();
 
@@ -84,5 +116,8 @@ class LBPanel extends JPanel {
         add(label6);
         add(label7);
 
+    }
+
+    public void actionPerformed(ActionEvent e) {
     }
 }
