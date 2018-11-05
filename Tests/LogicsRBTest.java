@@ -1,22 +1,39 @@
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LogicsRBTest {
+import static org.testng.Assert.assertEquals;
 
-    @Test
-    public void testWeightInRbCalc() {
-        String RBweight = "450";
-        String PeopleNo = "6";
+public class LogicsRBTest
+{
+    LogicsRB test1 = new LogicsRB();
+    RBPanel test11 = new RBPanel();
 
-        //double weightInRB = LogicsRB.weightInRbCalc(RBweight, PeopleNo);
-
-
+    @BeforeMethod
+    private void before()
+    {
+        test1.weightOfRB = 450.0;
+        test1.noOfPeople = 6.0;
     }
 
     @Test
-    public void testTotalWeightCalc() {
+    public void testWeightInRbCalc()
+    {
+        before();
+
+        test11.personWeight = 75.0;
+
+        assertEquals(test1.weightInRB, 540.0);
     }
 
     @Test
-    public void testDavitWeightCalc() {
+    public void testTotalWeightCalc()
+    {
+        assertEquals(test1.totalWeight, 990.0);
+    }
+
+    @Test
+    public void testDavitWeightCalc()
+    {
+        assertEquals(test1.davitWeight, 990.0);
     }
 }

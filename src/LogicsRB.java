@@ -2,13 +2,14 @@ class LogicsRB {
 
     String RBweight;
     String PeopleNo;
-    private double weightOfRB;
+    double weightOfRB;
     double weightInRB = 0.0;
     double totalWeight = 0.0;
     double davitWeight = 0.0;
+    double noOfPeople;
 
     void weightInRbCalc() {
-        double noOfPeople;
+
         if (!RBweight.equals("") && !PeopleNo.equals("")) {
             weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
             noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));

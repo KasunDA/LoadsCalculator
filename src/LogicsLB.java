@@ -2,15 +2,14 @@ class LogicsLB {
 
     String LBweight;
     String PeopleNo;
-    private double weightOfLB;
+    double weightOfLB;
     double weightInLB = 0.0;
     double totalWeight = 0.0;
     double davitWeight = 0.0;
-
-    //LBPanel panel = new LBPanel();
+    double noOfPeople;
 
     void weightInLbCalc() {
-        double noOfPeople;
+
         if (!LBweight.equals("") && !PeopleNo.equals("")) {
             weightOfLB = Double.parseDouble(LBweight.replaceAll("[^0-9.]", ""));
             noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
@@ -33,7 +32,10 @@ class LogicsLB {
         }
     }
 
-    void davitWeightCalc() {
+    void davitWeightCalc()
+    {
         davitWeight = totalWeight;
     }
+
+
 }

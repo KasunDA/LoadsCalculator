@@ -117,7 +117,7 @@ class RBPanel extends JPanel implements ActionListener {
         add(label7);
     }
 
-    private static double personWeight;
+    static double personWeight;
 
     public void actionPerformed(ActionEvent e)
     {

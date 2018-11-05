@@ -120,7 +120,7 @@ class LBPanel extends JPanel implements ActionListener {
 
     }
 
-    private static double personWeight;
+    static double personWeight;
 
     public void actionPerformed(ActionEvent e)
     {
