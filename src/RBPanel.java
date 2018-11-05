@@ -15,6 +15,8 @@ class RBPanel extends JPanel implements ActionListener {
     private JLabel label5;
     private JLabel label6;
     private JLabel label7;
+    private JRadioButton firstButton;
+    private JRadioButton secondButton;
     private ButtonGroup group;
 
     private static final int HEIGHT = 350;
@@ -52,7 +54,8 @@ class RBPanel extends JPanel implements ActionListener {
         personsField.setText("");
     }
 
-    RBPanel() {
+    RBPanel()
+    {
 
         int fieldHight = 25;
         int fieldWidth = 50;
@@ -76,12 +79,12 @@ class RBPanel extends JPanel implements ActionListener {
         personsField.setPreferredSize(fieleds);
         add(personsField);
 
-        JRadioButton firstButton = new JRadioButton("75 kg");
+        firstButton = new JRadioButton("75 kg");
         firstButton.setMnemonic(KeyEvent.VK_B);
         firstButton.setActionCommand("75 kg");
-        firstButton.setSelected(true);
+        firstButton.setSelected(false);
 
-        JRadioButton secondButton = new JRadioButton("82,5 kg");
+        secondButton = new JRadioButton("82,5 kg");
         secondButton.setActionCommand("82,5 kg");
         secondButton.setMnemonic(KeyEvent.VK_C);
 
@@ -113,6 +116,23 @@ class RBPanel extends JPanel implements ActionListener {
         add(label6);
         add(label7);
     }
-    public void actionPerformed(ActionEvent e) {
+
+    private static double personWeight;
+
+    public void actionPerformed(ActionEvent e)
+    {
+        if (firstButton.isSelected())
+        {
+            personWeight = 75.0;
+        }
+        else
+        {
+            personWeight =82.5;
+        }
+    }
+
+    public static double getPersonWeight()
+    {
+        return personWeight;
     }
 }

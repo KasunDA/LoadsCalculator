@@ -12,7 +12,7 @@ class LogicsRB {
         if (!RBweight.equals("") && !PeopleNo.equals("")) {
             weightOfRB = Double.parseDouble(RBweight.replaceAll("[^0-9.]", ""));
             noOfPeople = Double.parseDouble(PeopleNo.replaceAll("[^0-9.]", ""));
-            weightInRB = (weightOfRB * 0.1) + (noOfPeople * 75 * 1.1);
+            weightInRB = (weightOfRB * 0.1) + (noOfPeople * RBPanel.getPersonWeight() * 1.1);
             weightInRB *= 10;
             weightInRB = Math.round(weightInRB);
             weightInRB /= 10;
