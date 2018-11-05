@@ -16,7 +16,7 @@ public class LogicsRBTest
     }
 
     @Test
-    public void testWeightInRbCalc()
+    public void testWeightInRbCalc75()
     {
         before();
 
@@ -26,13 +26,13 @@ public class LogicsRBTest
     }
 
     @Test
-    public void testTotalWeightCalc()
+    public void testTotalWeightCalc75()
     {
         assertEquals(test1.totalWeight, 990.0);
     }
 
     @Test
-    public void testDavitWeightCalc()
+    public void testDavitWeightCalc75()
     {
         assertEquals(test1.davitWeight, 990.0);
     }
