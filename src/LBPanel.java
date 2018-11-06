@@ -68,16 +68,16 @@ class LBPanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.orange);
 
-        Dimension fieleds = new Dimension(fieldWidth, fieldHight);
+        Dimension fields = new Dimension(fieldWidth, fieldHight);
 
         add(new JLabel("Weight of the empty boat with equipment"));
         weightField = new JTextField();
-        weightField.setPreferredSize(fieleds);
+        weightField.setPreferredSize(fields);
         add(weightField);
 
         add(new JLabel("No. of persons"));
         personsField = new JTextField();
-        personsField.setPreferredSize(fieleds);
+        personsField.setPreferredSize(fields);
         add(personsField);
 
         firstButton = new JRadioButton("75 kg");

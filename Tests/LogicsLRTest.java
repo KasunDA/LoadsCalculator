@@ -5,19 +5,15 @@ import static org.testng.Assert.assertEquals;
 
 public class LogicsLRTest {
 
-    LogicsLR testSWL = new LogicsLR();
-
    @BeforeMethod
    private void before()
    {
-        testSWL.SWL = 2100;
+        LogicsLR.davitWeightCalc("2100");
    }
 
     @Test ()
-    public void testDavitWeightCalc() {
-        before();
-        testSWL.SWL = 2100;
-
-        assertEquals(String.valueOf(testSWL.davitWeight), "2310");
+    public void testDavitWeightCalc()
+    {
+        assertEquals(LogicsLR.davitWeight, 2310.0);
     }
 }

@@ -1,41 +1,67 @@
-
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class LogicsLBTest
 {
-    LBPanel panel = new LBPanel();
-    LogicsLB logics = new LogicsLB();
-    @BeforeMethod
-    private void before()
+
+    private LogicsLB logics = new LogicsLB();
+
+    @BeforeSuite
+    private void beforeSuite()
     {
-        double weightOfLB = 3500.0;
-        double noOfPeople = 16.0;
+        logics.LBweight = "3500";
+        logics.PeopleNo = "16";
     }
 
     @Test
-    public void testWeightInLbCalc75()
+    void testWeightInLbCalc75()
     {
-
-        double personWeight = 75.0;
-
+        LBPanel.personWeight = 75.0;
         double result = logics.weightInLbCalc();
         assertEquals(result, 1670.0);
     }
 
     @Test
-    public void testTotalWeightCalc75()
+    void testTotalWeightCalc75()
     {
+        logics.weightInLB = 1670.0;
         double result = logics.totalWeightCalc();
         assertEquals(result, 5170.0);
     }
 
     @Test
-    public void testDavitWeightCalc75()
+    void testDavitWeightCalc75()
     {
+        logics.totalWeight = 5170;
         double result = logics.davitWeightCalc();
         assertEquals(result, 5170.0);
+    }
+
+    //82,5
+
+    @Test
+    void testWeightInLbCalc82()
+    {
+        LBPanel.personWeight = 82.5;
+        double result = logics.weightInLbCalc();
+        assertEquals(result, 1802.0);
+    }
+
+    @Test
+    void testTotalWeightCalc82()
+    {
+        logics.weightInLB = 1802.0;
+        double result = logics.totalWeightCalc();
+        assertEquals(result, 5302.0);
+    }
+
+    @Test
+    void testDavitWeightCalc82()
+    {
+        logics.totalWeight = 5302.0;
+        double result = logics.davitWeightCalc();
+        assertEquals(result, 5302.0);
     }
 }
