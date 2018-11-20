@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Reset extends JButton implements ActionListener {
-
+public class Reset extends JButton implements ActionListener
+{
     private static final int HEIGHT = 30;
     private static final int WIDTH = 100;
 
@@ -13,7 +13,8 @@ public class Reset extends JButton implements ActionListener {
     private RBPanel rbPanel;
     private LRPanel lrPanel;
 
-    Reset(JPanel lbPanel, JPanel rbPanel, JPanel lrPanel){
+    Reset(JPanel lbPanel, JPanel rbPanel, JPanel lrPanel)
+    {
 
         this.lbPanel = (LBPanel) lbPanel;
         this.rbPanel = (RBPanel) rbPanel;
@@ -28,7 +29,8 @@ public class Reset extends JButton implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
         lbPanel.resetFields();
         rbPanel.resetFields();
         lrPanel.resetFields();

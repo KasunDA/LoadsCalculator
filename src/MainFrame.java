@@ -1,12 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-class MainFrame extends JFrame {
+class MainFrame extends JFrame
+{
 
-    MainFrame() {
+    MainFrame()
+    {
 
         JButton Calculate;
         JButton Reset;
+        JButton PrintButton;
         JPanel LBPanel;
         JPanel RBPanel;
         JPanel LRPanel;
@@ -37,6 +40,9 @@ class MainFrame extends JFrame {
 
         Reset = new Reset(LBPanel, RBPanel, LRPanel);
         add(Reset);
+
+        PrintButton = new PrintButton();
+        add(PrintButton);
 
     }
 }
