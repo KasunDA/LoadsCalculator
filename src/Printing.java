@@ -42,9 +42,13 @@ class Printing extends JButton implements ActionListener, Printable
         job.setPrintable(this);
         boolean ok = job.printDialog();
         if (ok) {
-            try {
+            try
+            {
                 job.print();
-            } catch (PrinterException ex) {
+            }
+            catch (PrinterException ex)
+            {
+                ex.getCause();
             }
         }
     }

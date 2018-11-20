@@ -3,7 +3,7 @@ import java.awt.*;
 
 class PrintFrame extends JFrame
 {
-    LogicsLB logicsLB = new LogicsLB();
+    private LogicsLB logicsLB = new LogicsLB();
 
     PrintFrame()
     {

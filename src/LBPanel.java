@@ -134,7 +134,7 @@ class LBPanel extends JPanel implements ActionListener {
         }
     }
 
-    public static double getPersonWeight()
+    static double getPersonWeight()
     {
         return personWeight;
     }
