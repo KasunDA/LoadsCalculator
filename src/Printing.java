@@ -13,7 +13,7 @@ class Printing extends JButton implements ActionListener, Printable
     Printing()
     {
         setLayout(new FlowLayout(FlowLayout.CENTER));
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setSize(new Dimension(WIDTH, HEIGHT));
 
         addActionListener(this);
 
