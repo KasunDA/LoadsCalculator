@@ -6,15 +6,22 @@ class PrintFrame extends JFrame
 
     PrintFrame()
     {
+        GridBagLayout layout = new GridBagLayout();
+        setLayout(layout);
+        setTitle("Printing");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocation(150, 0);
+        setSize(1100, 900);
+        setBackground(Color.WHITE);
+        setResizable(true);
+        pack();
+
+        GridBagConstraints border = new GridBagConstraints();
+        border.insets = new Insets(5, 5, 5, 5);
+
 
         LogicsLB logicsLB = new LogicsLB();
-        LogicsRB logicsRB = new LogicsRB();
-        LogicsLR logicsLR = new LogicsLR();
-
-        final int HEIGHT = 30;
-        final int WIDTH = 100;
-
-        JButton Printing;
         JLabel Label1;
         JLabel Label2;
         JLabel Label3;
@@ -23,6 +30,38 @@ class PrintFrame extends JFrame
         JLabel Label6;
         JLabel Label7;
 
+        Label1 = new JLabel("LIFEBOAT:");
+        Label1.setBorder(javax.swing.BorderFactory.createLineBorder(Color.ORANGE, 1));
+        border.gridx = 0;
+        border.gridy = 0;
+        add(Label1, border);
+
+        border.gridy = 1;
+        Label2 = new JLabel("Weight of empty Lifeboat with equipment = " + logicsLB.LBweight + " kg.");
+        Label2.setBorder(javax.swing.BorderFactory.createLineBorder(Color.ORANGE, 1));
+        add(Label2, border);
+
+        border.gridy = 2;
+        Label3 = new JLabel("No. of People = " + logicsLB.PeopleNo + ", " + LBPanel.getPersonWeight() + " kg each.");
+        add(Label3);
+
+        border.gridy = 3;
+        Label4 = new JLabel("Weight of the boat fully manned = " + (logicsLB.weightOfLB + logicsLB.noOfPeople) + ", + 10% = " + logicsLB.totalWeight + " kg.");
+        add(Label4);
+
+        border.gridy = 4;
+        Label5 = new JLabel("Weights to be loaded to the Lifeboat = " + logicsLB.weightInLB + " kg.");
+        add(Label5);
+
+        border.gridy = 5;
+        Label6 = new JLabel("DAVIT:");
+        add(Label6);
+
+        border.gridy = 6;
+        Label7 = new JLabel("Test load of davit = " + logicsLB.totalWeight + " kg.");
+        add(Label7);
+
+        LogicsRB logicsRB = new LogicsRB();
         JLabel Label8;
         JLabel Label9;
         JLabel Label10;
@@ -31,39 +70,8 @@ class PrintFrame extends JFrame
         JLabel Label13;
         JLabel Label14;
 
-        JLabel Label15;
-        JLabel Label16;
-        JLabel Label17;
-        JLabel Label18;
-        JLabel Label19;
-        JLabel Label20;
-        JLabel Label21;
-
-        setTitle("Printing");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setLocation(150, 0);
-        //setSize(1700, 500);
-        setLayout(new GridBagLayout());
-
-        setBackground(Color.WHITE);
-        setResizable(true);
-
-        Label1 = new JLabel("LIFEBOAT:");
-        add(Label1);
-        Label2 = new JLabel("Weight of empty Lifeboat with equipment = " + logicsLB.LBweight + " kg.");
-        add(Label2);
-        Label3 = new JLabel("No. of People = " + logicsLB.PeopleNo + ", " + LBPanel.getPersonWeight() + " kg each.");
-        add(Label3);
-        Label4 = new JLabel("Weight of the boat fully manned = " + (logicsLB.weightOfLB + logicsLB.noOfPeople) + ", + 10% = " + logicsLB.totalWeight + " kg.");
-        add(Label4);
-        Label5 = new JLabel("Weights to be loaded to the Lifeboat = " + logicsLB.weightInLB + " kg.");
-        add(Label5);
-        Label6 = new JLabel("DAVIT:");
-        add(Label6);
-        Label7 = new JLabel("Test load of davit = " + logicsLB.totalWeight + " kg.");
-        add(Label7);
-
+        border.gridx = 1;
+        border.gridy = 0;
         Label8 = new JLabel("RESCUE BOAT:");
         add(Label8);
         Label9 = new JLabel("Weight of empty Rescue Boat with equipment = " + logicsRB.RBweight + " kg.");
@@ -79,6 +87,14 @@ class PrintFrame extends JFrame
         Label14 = new JLabel("Test load of davit = " + logicsLB.totalWeight + " kg.");
         add(Label14);
 
+        LogicsLR logicsLR = new LogicsLR();
+        JLabel Label15;
+        JLabel Label16;
+        JLabel Label17;
+        JLabel Label18;
+        JLabel Label19;
+        JLabel Label20;
+        JLabel Label21;
         Label15 = new JLabel("LIFERAFT DAVIT:");
         add(Label15);
         Label16 = new JLabel("Davit's SWL = " + logicsLR.SWL + " kg.");
@@ -94,6 +110,9 @@ class PrintFrame extends JFrame
         Label21 = new JLabel("");
         add(Label21);
 
+        final int HEIGHT = 30;
+        final int WIDTH = 100;
+        JButton Printing;
         Printing = new Printing();
         Printing.setSize(new Dimension(WIDTH, HEIGHT));
         add(Printing);
