@@ -5,8 +5,16 @@ class PrintFrame extends JFrame
 {
     PrintFrame()
     {
+        setTitle("Printing");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocation(150, 0);
+        setSize(1000, 1000);
+        setLayout(new GridBagLayout());
+        setResizable(true);
         GridBagConstraints border = new GridBagConstraints();
         border.insets = new Insets(5, 5, 5, 5);
+        //pack();
 
 
         LogicsLB logicsLB = new LogicsLB();
