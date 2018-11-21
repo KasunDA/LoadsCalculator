@@ -139,6 +139,5 @@ class PrintFrame extends JFrame
         Printing = new Printing();
         Printing.setSize(new Dimension(WIDTH, HEIGHT));
         add(Printing);
-
     }
 }
