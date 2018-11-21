@@ -3,20 +3,8 @@ import java.awt.*;
 
 class PrintFrame extends JFrame
 {
-
     PrintFrame()
     {
-        GridBagLayout layout = new GridBagLayout();
-        setLayout(layout);
-        setTitle("Printing");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setLocation(150, 0);
-        setSize(1100, 900);
-        setBackground(Color.WHITE);
-        setResizable(true);
-        pack();
-
         GridBagConstraints border = new GridBagConstraints();
         border.insets = new Insets(5, 5, 5, 5);
 
@@ -74,16 +62,28 @@ class PrintFrame extends JFrame
         border.gridy = 0;
         Label8 = new JLabel("RESCUE BOAT:");
         add(Label8);
+
+        border.gridy = 1;
         Label9 = new JLabel("Weight of empty Rescue Boat with equipment = " + logicsRB.RBweight + " kg.");
         add(Label9);
+
+        border.gridy = 2;
         Label10 = new JLabel("No. of People = " + logicsRB.PeopleNo + ", " + RBPanel.getPersonWeight() + " kg each.");
         add(Label10);
+
+        border.gridy = 3;
         Label11 = new JLabel("Weight of the boat fully manned = " + (logicsRB.weightOfRB + logicsRB.noOfPeople) + ", + 10% = " + logicsRB.totalWeight + " kg.");
         add(Label11);
+
+        border.gridy = 4;
         Label12 = new JLabel("Weights to be loaded to the Lifeboat = " + logicsRB.weightInRB + " kg.");
         add(Label12);
+
+        border.gridy = 5;
         Label13 = new JLabel("DAVIT:");
         add(Label13);
+
+        border.gridy = 6;
         Label14 = new JLabel("Test load of davit = " + logicsLB.totalWeight + " kg.");
         add(Label14);
 
@@ -95,18 +95,33 @@ class PrintFrame extends JFrame
         JLabel Label19;
         JLabel Label20;
         JLabel Label21;
+
+        border.gridx = 2;
+        border.gridy = 0;
         Label15 = new JLabel("LIFERAFT DAVIT:");
         add(Label15);
+
+        border.gridy = 1;
         Label16 = new JLabel("Davit's SWL = " + logicsLR.SWL + " kg.");
         add(Label16);
+
+        border.gridy = 2;
         Label17 = new JLabel("Test load = " + logicsLR.davitWeight);
         add(Label17);
+
+        border.gridy = 3;
         Label18 = new JLabel("");
         add(Label18);
+
+        border.gridy = 4;
         Label19 = new JLabel("");
         add(Label19);
+
+        border.gridy = 5;
         Label20 = new JLabel("");
         add(Label20);
+
+        border.gridy = 6;
         Label21 = new JLabel("");
         add(Label21);
 
